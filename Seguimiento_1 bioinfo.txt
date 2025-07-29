@@ -35,13 +35,14 @@ i# ¿Cuantos features contiene el archivo?
 
 
 ii#  ¿Cuántas regiones de la secuencia (cromosomas) contiene el archivo?
-# Teniendo el listado de features me fijo en la de "region", la cual es la que buscamos, por lo que:
-- cat features.txt | grep -v "#" | grep -v "biological_region" | grep -ci "region"  # = 134
+# No utilizo el .txt y uso el comando de conteo para saber la cantidad de ##seq-region que hay en el archivo
+- cat Rhinolophus_ferrumequinum.mRhiFer1_v1.p.114.gff3 | grep -c "##sequence-region"  # = 134
 
 
 iii# ¿Cuántos genes están listados en el organismo?
-# Utilizando el mismo comando anterior se observa el número de genes del organismo
-- cat features.txt | grep -vi "#" | sort-uniq-count-rank | head # = 19533
+# Utilizando el features.txt se observa el listado de genes del organismo
+-  cat features.txt | grep -vi "#" | grep -vi "segment" | grep "gene" | sort-uniq-count-rank # = 22172
+# No se tomó en cuenta el V_gene_segment, J_gene_segment y C_gene_segment, ya que no son un gen como tal, solo segmentos de uno. 
 
 
 iv# ¿Cuál es el top 10 de tipo de features (columna 3) más anotados en el genoma?
