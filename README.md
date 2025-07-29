@@ -13,6 +13,10 @@
 
 **3)**  
 a. **Rhinolophus ferrumequinum:** 
+
+
+<img width="374" height="295" alt="image" src="https://github.com/user-attachments/assets/3270925a-3802-44de-a837-78f7b63cf801" />
+
 - Comunmente llamado Murciélago de herradura mayor, su nombre proviene de una estructura característica en la nariz con forma de herradura, la cual usa para emitir ultrasonidos y orientarse por ecolocalización.
 - Este animal se encuentra en Europa, el norte de África y Asia.
 - Sus habitats comunes son zonas boscosas, cuevas, minas, edificios antiguos o túneles.
@@ -20,10 +24,11 @@ a. **Rhinolophus ferrumequinum:**
 - Como dato curioso, este murciélago es uno de los pocos que puede modular la frecuencia de su ecolocalización con mucha precisión, lo que le permite detectar incluso insectos en ambientes con muchos obstáculos.
 
 - i. **# ¿Cuantos features contiene el archivo?**
-    22
+    --> 22
 - ii. **# ¿Cuántas regiones de la secuencia (cromosomas) contiene el archivo?**
-    134
-- iii.****
+    --> 134
+- iii.**¿Cuántos genes están listados en el organismo?**
+    --> 19533 
 - iv. **# ¿Cuál es el top 10 de tipo de features (columna 3) más anotados en el genoma?**
     - 387739  exon
     - 369518  CDS
