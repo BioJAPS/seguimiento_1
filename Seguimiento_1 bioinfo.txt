@@ -37,6 +37,8 @@ i# ¿Cuantos features contiene el archivo?
 ii#  ¿Cuántas regiones de la secuencia (cromosomas) contiene el archivo?
 # No utilizo el .txt y uso el comando de conteo para saber la cantidad de ##seq-region que hay en el archivo
 - cat Rhinolophus_ferrumequinum.mRhiFer1_v1.p.114.gff3 | grep -c "##sequence-region"  # = 134
+# Cabe aclarar que tambien es posible utilizar la columna 3, ya que el Feature "region" tambien está definido como cromosoma. 
+- $ cat features.txt | grep -vi "#" | sort-uniq-count-rank # = 134
 
 
 iii# ¿Cuántos genes están listados en el organismo?
