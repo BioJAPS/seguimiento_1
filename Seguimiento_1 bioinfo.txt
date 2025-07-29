@@ -1,0 +1,48 @@
+2)
+
+# Activo el entorno Bioinfo
+- Conda activate bioinfo
+
+# Creo una carpeta para hacer el seguimiento
+- mkdir seguimiento_1
+
+# Descargo la información del microorganismo usando la terminal 
+- wget https://ftp.ensembl.org/pub/current_gff3/rhinolophus_ferrumequinum/Rhinolophus_ferrumequinum.mRhiFer1_v1.p.114.gff3.gz
+
+# Muevo el microorganismo hacia la carpeta previamente creada
+- mv Rhinolophus_ferrumequinum.mRhiFer1_v1.p.114.gff3.gz seguimiento_1/
+
+# Descomprimo el archivo
+- gunzip Rhinolophus_ferrumequinum.mRhiFer1_v1.p.114.gff3.gz
+
+
+3)
+
+i# ¿Cuantos features contiene el archivo?
+- cat Rhinolophus_ferrumequinum.mRhiFer1_v1.p.114.gff3 | cut -f 3 | wc -l # Esto no es suficientemente especifico, ya que son solo las líneas
+
+# Antes de seguir decidí hacer un archivo de texto plano de la columna 3 "types"
+- cat Rhinolophus_ferrumequinum.mRhiFer1_v1.p.114.gff3 | cut -f 3 > features.txt
+
+# Por lo que: 
+-  cat features.txt | sort-uniq-count-rank #Tiene el problema de Features con nombres extraños que empiezan por #, por lo que se prefiere evitarlos.
+
+# Entonces se utiliza el comando para ignorarlos
+-  cat features.txt | grep -vi "#" | sort-uniq-count-rank
+
+# Por ultimo, se cuentan las líneas para saber cuantos tipos de Features hay
+- cat features.txt | grep -vi "#" | sort-uniq-count-rank | wc -l  # Fueron 22
+
+
+ii#  ¿Cuántas regiones de la secuencia (cromosomas) contiene el archivo?
+# Teniendo el listado de features me fijo en la de "region", la cual es la que buscamos, por lo que:
+- cat features.txt | grep -v "#" | grep -v "biological_region" | grep -ci "region"  # = 134
+
+
+iii# ¿Cuántos genes están listados en el organismo?
+# Utilizando el mismo comando anterior se observa el número de genes del organismo
+- cat features.txt | grep -vi "#" | sort-uniq-count-rank | head # = 19533
+
+
+iv# ¿Cuál es el top 10 de tipo de features (columna 3) más anotados en el genoma?
+- cat features.txt | grep -vi "#" | sort-uniq-count-rank | head 
